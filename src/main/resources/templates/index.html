@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-<h1>Hello Pizza</h1>
-<form method="post" th:action="@{/addPizza}" th:object="${pizza}">
-<input type="text" th:field="*{name}">
-<input type="submit" th:value="Submit">
-</form>
+<div class="container-fluid">
+<h1 class="container d-flex justify-content-center" >Hello Pizza</h1>
+    <form method="post" th:action="@{/addPizza}" th:object="${pizza}">
 
-<table>
-    <tr th:each="pizza : ${pizzas}">
-        <td th:text="${pizza.name}"></td>
-    </tr>
-</table>
+        <div class="container input-group mb-3 w-25 d-flex justify-content-center ">
+            <input required type="text" th:field="*{name}" class="form-control" placeholder="pizzaName" aria-label="Pizza Name" aria-describedby="buttonSubmit">
+            <button class="btn btn-outline-secondary" type="submit" id="buttonSubmit">Button</button>
+        </div>
 
+    </form>
+
+    <table class="table table-striped">
+        <tr th:each="pizza : ${pizzas}">
+            <td th:text="${pizza.name}"></td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="/webjars/bootstrap/5.3.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
